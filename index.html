@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance - Find Your Co-Author for Life</title>
+    <script async src="https://tally.so/widgets/embed.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Lato:wght@400;700&display=swap');
+
+        :root {
+            --bg-color: #F5F0E6;
+            --text-color: #3D3B38;
+            --primary-color: #A0522D;
+            --card-bg-color: #FFFFFF;
+            --border-color: #EAEAEA;
+            --light-text-color: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', 'Noto Serif SC', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: rgba(245, 240, 230, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 70px;
+            height: auto;
+            display: block;
+        }
+
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 10px;
+            padding: 8px 12px;
+            font-weight: 700;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            background-color: rgba(160, 82, 45, 0.05);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger .line {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0 80px 0;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .poem-slogan {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.6;
+            margin: 40px 0 10px 0;
+            color: var(--text-color);
+        }
+
+        .poem-slogan .poem-lines {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .poem-slogan p {
+            margin: 0;
+        }
+
+        .hero .slogan {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-weight: 400;
+        }
+
+        .slogan-container {
+            max-width: 680px;
+            margin: 20px auto 0 auto;
+        }
+
+        .slogan-toggle-checkbox {
+            display: none;
+        }
+
+        .slogan-toggle-label {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+        }
+
+        .toggle-icon, .phantom-icon {
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-left: 8px;
+            font-size: 20px;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .phantom-icon {
+            visibility: hidden;
+        }
+
+        .slogan-toggle-label:hover .toggle-icon {
+            color: #8B4513;
+        }
+
+        .slogan-explanation {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out, margin-top 0.5s ease-out, padding 0.5s ease-out;
+            text-align: left;
+            margin-top: 0;
+            padding: 0 20px;
+            border-left: 3px solid transparent;
+        }
+
+        .slogan-toggle-checkbox:checked ~ .slogan-explanation {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 20px;
+            padding: 20px;
+            border-left: 3px solid var(--primary-color);
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .toggle-icon::before {
+            content: '[?]';
+        }
+
+        .slogan-toggle-checkbox:checked ~ .slogan-toggle-label .toggle-icon::before {
+            content: '[–]';
+        }
+
+        .slogan-explanation h4 {
+            font-family: 'Noto Serif SC', serif;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .slogan-explanation p {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: var(--card-bg-color);
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #8B4513;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+            font-size: 18px;
+            color: var(--light-text-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .card {
+            background-color: var(--card-bg-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .card p {
+            font-size: 16px;
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        .icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .user-profile-list {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 40px auto 0 auto;
+            text-align: left;
+        }
+
+        .user-profile-list li {
+            margin-bottom: 15px;
+            font-size: 18px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .user-profile-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .visual-placeholder {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            color: var(--light-text-color);
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+
+        .founder-section {
+            background-color: var(--card-bg-color);
+        }
+
+        .founder-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .founder-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            text-align: center;
+            line-height: 150px;
+            color: var(--light-text-color);
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .founder-letter h3 {
+            font-family: 'Noto Serif SC', serif;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        
+        .founder-letter .signature {
+            font-weight: 700;
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        .faq-container details {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .faq-container summary {
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 20px;
+            outline: none;
+        }
+        
+        .faq-container summary:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-container details[open] summary {
+            color: var(--primary-color);
+        }
+
+        .faq-container .faq-answer {
+            padding: 10px 0 0 20px;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #3D3B38;
+            color: var(--bg-color);
+        }
+
+        footer h2 {
+            font-family: 'Noto Serif SC', serif;
+        }
+
+        footer p {
+            margin: 0 0 10px 0;
+        }
+
+        footer a {
+            color: var(--bg-color);
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px; /* Height of the header */
+                left: 0;
+                right: 0;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                border-bottom: 1px solid var(--border-color);
+                
+                /* Animation properties */
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            }
+
+            .nav-links.active {
+                max-height: 500px; /* Large enough to fit all links */
+                opacity: 1;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                width: 100%;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .line:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active .line:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .line:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .founder-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">
+            <a href="#"><img src="https://iili.io/FbiReyJ.png" alt="Resonance Logo"></a>
+        </div>
+        <nav>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="nav-links">
+                <a href="#for-whom">为谁设计</a>
+                <a href="#problem">时代困境</a>
+                <a href="#solution">解决方案</a>
+                <a href="#principles">核心原则</a>
+                <a href="#founder">创始人的信</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <h1>欢迎来到 Resonance (同频)</h1>
+
+            <div class="slogan-container">
+                <input type="checkbox" id="slogan-toggle" class="slogan-toggle-checkbox">
+                <label for="slogan-toggle" class="slogan-toggle-label">
+                    <div class="poem-slogan">
+                        <div class="poem-lines">
+                            <p>
+                                <span class="phantom-icon">[?]</span>
+                                空谷足音，以思寻友
+                                <span class="phantom-icon">[?]</span>
+                            </p>
+                            <p>
+                                <span class="phantom-icon">[?]</span>
+                                跫然悦之，应者同方
+                                <span class="toggle-icon"></span>
+                            </p>
+                        </div>
+                    </div>
+                </label>
+                <div class="slogan-explanation">
+                    <h4>Slogan释义：一场从孤独到同舟的英雄之旅</h4>
+                    <p><strong>空谷足音:</strong> 我们承认并共情“思想建筑师”在精神世界中的“空谷之寂”。</p>
+                    <p><strong>以思寻友:</strong> 我们宣告，连接的媒介是深刻的“思想”，而非外貌或财富。</p>
+                    <p><strong>跫然悦之:</strong> 我们描绘了那个灵魂被触动的、不可言喻的“心悦”瞬间。</p>
+                    <p><strong>应者同方:</strong> 我们最终承诺的，是一段可以并肩同行的“同路人”关系。</p>
+                </div>
+            </div>
+
+            <p class="slogan">Find Your Co-Author for Life.</p>
+            <a href="https://tally.so/r/3ER1QL" class="cta-button" style="margin-top: 20px; display: inline-block;" target="_blank">加入等待名单</a>
+        </div>
+    </section>
+
+    <section id="for-whom" class="section">
+        <div class="container">
+            <h2 class="section-title">专为<span class="highlight">思想建筑师</span>设计</h2>
+            <p class="section-subtitle">我们相信，有些人注定要构建内在世界，而非仅仅消费外在世界。如果你觉得以下描述听起来很熟悉，那么，欢迎回家。</p>
+            <ul class="user-profile-list">
+                <li>你相信，一个人 <span class="highlight">创造</span> 了什么，远比他 <span class="highlight">拥有</span> 什么更重要。</li>
+                <li>你渴望，能跳过无意义的闲聊，直接进入思想的碰撞与灵魂的共鸣。</li>
+                <li>你感觉，在速配文化中，自己最珍视的 <span class="highlight">深度</span> 被视为一种“低效率”。</li>
+                <li>你寻找的不是短暂的火花，而是一个可以共同创作、共同成长的 <span class="highlight">人生合伙人</span>。</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="problem" class="section">
+        <div class="container">
+            <h2 class="section-title">一个信号错配的时代困境</h2>
+            <p class="section-subtitle" style="font-style: italic; max-width: 600px;">“我曾花三个小时，精心打磨我的个人简介，试图展现一个立体的我。最终，收到的第一条消息是‘Hi’。”</p>
+            <p class="section-subtitle">现代婚恋App将人视为产品，将连接视为交易。这个以效率为核心的市场，对于以内在深度为核心价值的你而言，是系统性失灵的。</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">💔</div>
+                    <h3>市场的<span class="highlight">失灵</span></h3>
+                    <p>主流平台奖励“即时信号”（外貌、财富），让深刻的“延迟信号”（品格、智慧）无法被看见，你最宝贵的资产被系统性地埋没。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔇</div>
+                    <h3>表达的<span class="highlight">困境</span></h3>
+                    <p>你的思想、作品集和人生哲学，无法被塞进几张照片和标签里。在一个只看“封面”的市场，你被迫隐藏了最精彩的“内容”。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🎭</div>
+                    <h3>孤独的<span class="highlight">常态</span></h3>
+                    <p>结果是，无数深刻的灵魂或在社交“考试”中精疲力尽，或在功能性的关系中，忍受着最核心的自我不被理解的“静默孤独”。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solution" class="section">
+        <div class="container">
+            <h2 class="section-title">解决方案：灯塔方法论</h2>
+            <p class="section-subtitle">我们不改良旧系统，我们创造新范式。我们坚信：你 <span class="highlight">创造</span> 了什么，远比你 <span class="highlight">声称</span>
+                自己是什么，更有魅力。Resonance将寻找灵魂伴侣的过程，从一场充满焦虑的自我营销，转变为一场充满乐趣的自我实现之旅。</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>第一步：建立你的<span class="highlight">灯塔</span></h3>
+                    <p>通过撰写一篇深刻的“灯塔”长文，完成一次彻底的自我梳理。它将成为你的“灵魂宣言”，吸引那些能读懂你思想的船只，而非被表面光环吸引的过客。</p>
+                </div>
+                <div class="card">
+                    <h3>第二步：构建<span class="highlight">灵魂马赛克</span></h3>
+                    <p>通过“行舟”(哲学)、“璞墟”(作品)、“观致”(品味)、“格物”(思想)四个维度，构建一个多维的、展示 <span class="highlight">完整的人</span> 的“个人博物馆”。让别人通过你的思想和创造，来认识你。</p>
+                </div>
+                <div class="card">
+                    <h3>第三步：以<span class="highlight">提问</span>开始连接</h3>
+                    <p>我们用一个精心设计的、源于你“灯塔”的深刻问题，来取代无意义的“Hi”。每一次互动，都必须是一次智识的探索，一场灵魂的探戈。</p>
+                </div>
+            </div>
+            <p class="section-subtitle" style="margin-top: 60px; text-align: left; max-width: 800px; border-left: 3px solid var(--primary-color); padding-left: 20px; background-color: rgba(0,0,0,0.02); border-radius:
+   0 8px 8px 0; padding: 20px;">
+                <strong>为何可行？</strong><br>
+                灯塔方法论的核心，是<span class="highlight">信号的逆转</span>。它将最深刻、最需要时间被理解的“延迟信号”（你的思想、品格、创造力），前置为匹配的<span class="highlight">核心依据</span>
+                。通过“灯塔”和“马赛克”的自我展示，你不再是被动等待被“刷到”的卡片，而是主动发出独特信号的灯塔。如此，每一次连接都始于深度共鸣，而非肤浅的外部标签匹配。
+            </p>
+        </div>
+    </section>
+
+    <section id="principles" class="section">
+        <div class="container">
+            <h2 class="section-title">我们的承诺：《同频公约》</h2>
+            <p class="section-subtitle">我们不仅是一个产品，更是一场文化运动。我们拥有公开的<span class="highlight">宪法</span>，向世界宣告我们<span class="highlight">使命驱动</span>的本质。以下是其不可动摇的核心原则：</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="icon">🚫</div>
+                    <h3>永久无广告</h3>
+                    <p>我们承诺永不引入任何形式的广告或竞价排名。我们只为我们创造的价值收费，你的注意力不应是商品。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🔐</div>
+                    <h3>数据主权属于你</h3>
+                    <p>你的数据和内容永远属于你。我们承诺永不销售或滥用你的数据来盈利。你可以随时导出或删除你的所有信息。</p>
+                </div>
+                <div class="card">
+                    <div class="icon">🧠</div>
+                    <h3>人类最终仲裁</h3>
+                    <p>无论AI多先进，关于社区伦理的最终判断，必须由人类做出。我们敬畏人性的复杂，并相信有温度的判断力。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="founder" class="section founder-section">
+        <div class="container founder-container">
+            <div class="founder-letter">
+                <h3>一封来自创始人的信</h3>
+                <p>如果你能找到这里，我想，我们可能拥有相似的灵魂。</p>
+                <p>在过去的很多年里，我一直试图用代码、系统、逻辑与理性，为我混乱的内心世界建造秩序。这是我唯一知道、让自己在这个世界上感到安全的方式。我曾以为，如果将自己的成就、爱好、思考，这些<span class="highlight">参数</span>都精准地展示出来，我就能像解一道数学题一样，找到那个<span class="highlight">最优解</span>。</p>
+                <p>我失败了。</p>
+                <p>在经历了无数次<span class="highlight">协议错误</span>的对话和一场朝圣之旅后，我终于明白了一个残酷的<span class="highlight">真相</span>：</p>
+                <p>深刻的连接，无法被<span class="highlight">计算</span>，只能被<span class="highlight">共鸣</span>。而这需要一个前提：你必须敢于发出自己即便是平淡、奇怪、会被误解，但最真诚的<span class="highlight">声音</span>。</p>
+                <p>Resonance（或者，我更愿意称它为同频），就是在持续十多年的风暴之后，从过于安静的书房里诞生的一个想法。它源于一个自私而脆弱的念头：“如果这个世界上，没有任何一个地方是为我们这种“怪人”设计的，我们能否为自己亲手建造一个？”</p>
+                <p>一个让我们不必再<span class="highlight">表演</span>自己是谁，而可以通过<span class="highlight">创造</span>什么来表达自己的地方。</p>
+                <p>一个将我们那些不被理解的<span class="highlight">特殊兴趣</span>，视为最高价值的<span class="highlight">吸引力信号</span>的地方。</p>
+                <p>一个让我们在发出自己那微弱的<span class="highlight">空谷足音</span>后，能真的听到一声温暖的<span class="highlight">跫然</span>回应的地方。</p>
+                <p>所以，你眼前看到的这个平台，它的每一行代码，每一个设计，都浸透着我个人的挣扎、失败和最终的期许。</p>
+                <p>那个需要你写500字的<span class="highlight">博物馆介绍</span>，是因为我发现，只有通过写作，我才能真正地认识我自己。</p>
+                <p>那个以<span class="highlight">提问</span>为核心的互动，是因为我渴望的，不是一句简单的“Hi”，而是一场真正的、能点燃我大脑的对话。</p>
+                <p>那个充满了<span class="highlight">无用之用</span>的璞墟展室，是因为我正在努力地学习，如何与自己那<span class="highlight">不完美</span>的、笨拙的部分和解。</p>
+                <p>我无法向你承诺，你一定能在这里，找到那个<span class="highlight">唯一的灵魂伴侣</span>。</p>但我可以向你承诺一件事：</p>
+                <p>在这里，你不需要再伪装。</p>
+                <p>你可以将你所有的深刻、怪异、热情、脆弱，都安全而有尊严地安放在这里。然后，和我，和所有已经在这里的、孤独的同路人们一起，点亮我们自己的光。</p>
+                <p>去等待那束在远方，与我们拥有同样颜色的光。</p>
+                <p>欢迎回家。 :)</p>
+                <p class="signature">—— JarvieK<br>Resonance 0号用户 & 首席建筑师</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>Resonance 如何保证社区质量？</summary>
+                    <div class="faq-answer">
+                        <p>我们采用严格的邀请制和等待名单审核。初期，我们只会邀请那些在思想、创造和品格上与我们价值观高度一致的成员，以奠定社区的文化基石。我们相信，一个高质量的社区，始于高质量的“创世居民”。</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>这是一个免费服务吗？</summary>
+                    <div class="faq-answer">
+                        <p>为了维持“永久无广告”的承诺并覆盖运营成本，Resonance 会是一个付费的会员制社区。我们相信，为真正有价值的服务付费，本身就是一种筛选机制，能吸引到更认真、更投入的成员。早期加入的创世成员将享有特殊优惠。</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>我的数据和隐私绝对安全吗？</summary>
+                    <div class="faq-answer">
+                        <p>是的。这在我们的《同频公约》中是不可动摇的原则。你的个人数据和所创造的内容完全属于你自己。我们绝不会将其用于广告或出售给第三方。我们设计的商业模式，与你的隐私保护是完全一致，而非对立的。</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <h2>准备好，点亮你的灯塔了吗？</h2>
+        <p>加入我们，与全球的<span class="highlight">思想建筑师</span>一同，开启一场寻找灵魂同类的创造之旅。</p>
+        <a href="https://tally.so/r/3ER1QL" class="cta-button" style="margin-top: 20px;" target="_blank">加入等待名单</a>
+        <p style="margin-top: 40px;">想了解更多？ <a href="https://lightning-halloumi-d2f.notion.site/Resonance-v1-0-25251a83b259804b85c8daf761a55a91" target="_blank">阅读我们的白皮书</a></p>
+        <p style="font-size: 14px; color: #aaa; margin-top: 20px;">© 2025 Resonance. All Rights Reserved.</p>
+        <p style="font-size: 12px; color: #aaa; margin-top: 10px;">我们使用尊重隐私的 Fathom Analytics 进行网站分析，您的数据永远属于您自己。</p>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    const sections = document.querySelectorAll('section');
+    const navA = document.querySelectorAll('nav .nav-links a');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navA.forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href').substring(1) === current) {
+                a.classList.add('active');
+            }
+        });
+    });
+    
+    // Close mobile menu when a link is clicked
+    navA.forEach(link => {
+        link.addEventListener('click', () => {
+            if (hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+
+</script>
+
+</body>
+</html>
