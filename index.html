@@ -494,6 +494,26 @@
             }
         }
 
+    /* Poem responsive styles */
+        .poem-slogan {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+        .poem-phrase {
+            display: block;
+            white-space: nowrap;
+            text-align: center;
+        }
+        @media (min-width: 520px) {
+            .poem-phrase {
+                display: inline;
+            }
+            .poem-lines {
+                display: inline-block;
+                text-align: left;
+            }
+        }
     </style>
 </head>
 <body>
@@ -530,26 +550,24 @@
                 <input type="checkbox" id="slogan-toggle" class="slogan-toggle-checkbox">
                 <label for="slogan-toggle" class="slogan-toggle-label">
                     <div class="poem-slogan">
+                        <span class="phantom-icon">[?]</span>
                         <div class="poem-lines">
-                            <p>
-                                <span class="phantom-icon">[?]</span>
-                                空谷足音，以思寻友
-                                <span class="phantom-icon">[?]</span>
+                            <p class="couplet">
+                                <span class="poem-phrase">空谷足音，</span><span class="poem-phrase">以思寻友</span>
                             </p>
-                            <p>
-                                <span class="phantom-icon">[?]</span>
-                                跫然悦之，应者同方
-                                <span class="toggle-icon"></span>
+                            <p class="couplet">
+                                <span class="poem-phrase">跫然悦之，</span><span class="poem-phrase">应者同方</span>
                             </p>
                         </div>
+                        <span class="toggle-icon"></span>
                     </div>
                 </label>
                 <div class="slogan-explanation">
-                    <h4>Slogan释义：一场从孤独到同舟的英雄之旅</h4>
-                    <p><strong>空谷足音:</strong> 我们承认并共情“思想建筑师”在精神世界中的“空谷之寂”。</p>
-                    <p><strong>以思寻友:</strong> 我们宣告，连接的媒介是深刻的“思想”，而非外貌或财富。</p>
-                    <p><strong>跫然悦之:</strong> 我们描绘了那个灵魂被触动的、不可言喻的“心悦”瞬间。</p>
-                    <p><strong>应者同方:</strong> 我们最终承诺的，是一段可以并肩同行的“同路人”关系。</p>
+                    <h4>一场从孤独到同舟的旅程</h4>
+                    <p><strong>空谷足音:</strong> 它回应着深刻灵魂的孤独，与被听见的渴望。</p>
+                    <p><strong>以思寻友:</strong> 它指明了一条道路：连接建立于内在的共鸣，而非流于表面的标签。</p>
+                    <p><strong>跫然悦之:</strong> 它描绘了那份灵魂被真正理解时，不可言喻的喜悦。</p>
+                    <p><strong>应者同方:</strong> 它带来的不止是短暂的火花，更是一个能并肩前行、合著人生的伙伴。</p>
                 </div>
             </div>
 
