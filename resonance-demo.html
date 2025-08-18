@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resonance - Find Your Co-Author for Life</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Lora (Serif) and Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to implement the brand identity */
+        body {
+            background-color: #F5F0E6; /* Warm Off-White */
+            font-family: 'Inter', sans-serif; /* Default font */
+            color: #28354A; /* Charcoal Blue */
+        }
+        
+        /* Custom font for headings */
+        .font-serif {
+            font-family: 'Lora', serif;
+        }
+
+        /* Custom colors for Tailwind */
+        .bg-charcoal-blue { background-color: #28354A; }
+        .text-charcoal-blue { color: #28354A; }
+        .bg-warm-off-white { background-color: #F5F0E6; }
+        .text-warm-off-white { color: #F5F0E6; }
+        .bg-amber { background-color: #FFBF00; }
+        .text-amber { color: #FFBF00; }
+        .border-amber { border-color: #FFBF00; }
+
+        /* Transition styles for smooth screen changes */
+        .screen {
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+        }
+        .screen.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            position: absolute;
+        }
+
+        /* Custom button style */
+        .btn {
+            @apply px-8 py-3 rounded-md text-lg font-medium transition-all duration-300 ease-in-out shadow-sm;
+        }
+        .btn-primary {
+            @apply bg-amber text-charcoal-blue hover:bg-opacity-90 hover:shadow-lg transform hover:-translate-y-0.5;
+        }
+        .btn-secondary {
+            @apply bg-transparent border-2 border-charcoal-blue text-charcoal-blue hover:bg-charcoal-blue hover:text-warm-off-white;
+        }
+        
+        /* Custom style for the writing editor */
+        #lighthouse-editor {
+            background: #F5F0E6;
+            border: 1px solid #D1CABD;
+            border-radius: 8px;
+            padding: 2rem;
+            min-height: 400px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #28354A;
+            resize: none;
+            outline: none;
+            transition: box-shadow 0.3s;
+        }
+        #lighthouse-editor:focus {
+            box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.4);
+        }
+
+        /* Scrollbar styling for a more elegant look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F0E6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1CABD;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B9A998;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="app" class="relative min-h-screen w-full overflow-x-hidden flex items-center justify-center p-4">
+
+        <!-- Step 1: The Manifesto -->
+        <section id="manifesto-screen" class="screen w-full max-w-3xl mx-auto text-center">
+            <div class="space-y-8">
+                <div class="flex justify-center items-center space-x-3">
+                    <!-- The abstract logo -->
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 38C10.0589 38 2 29.9411 2 20C2 10.0589 10.0589 2 20 2" stroke="#28354A" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M20 2C29.9411 2 38 10.0589 38 20C38 29.9411 29.9411 38 20 38" stroke="#FFBF00" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <h1 class="font-serif text-5xl font-bold text-charcoal-blue">Resonance</h1>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl text-charcoal-blue leading-tight">Tired of the noise?<br>Let's find your signal.</h2>
+                <p class="text-lg text-charcoal-blue max-w-2xl mx-auto">
+                    我们相信，最深刻的吸引力，源于共同创造，而非相互展示。Resonance 专为深度思考者设计，在这里，您的思想就是您唯一的开场白。
+                </p>
+                <button id="begin-journey-btn" class="btn btn-primary">Begin My Journey</button>
+            </div>
+        </section>
+
+        <!-- Step 2: The Cornerstone of Trust (ORCID) -->
+        <section id="orcid-screen" class="screen hidden w-full max-w-2xl mx-auto text-center">
+            <div class="space-y-6">
+                <h1 class="font-serif text-4xl font-bold text-charcoal-blue">信任的基石</h1>
+                <p class="text-lg text-charcoal-blue">
+                    深刻的连接，始于无需怀疑的信任。我们通过 ORCID 验证您的学者身份，确保社区的真实与纯粹。您的学术成就将被默认折叠，仅作为信任的背景。
+                </p>
+                <div class="bg-white/50 p-6 rounded-lg border border-gray-200">
+                    <img src="https://placehold.co/200x60/28354A/F5F0E6?text=ORCID+Logo" alt="ORCID Logo" class="mx-auto h-12" onerror="this.onerror=null;this.src='https://placehold.co/200x60/28354A/F5F0E6?text=ORCID+Logo';">
+                    <p class="mt-4 text-sm text-charcoal-blue/70">您将被引导至 ORCID 官网进行授权。我们绝不会公开分享您的敏感数据。</p>
+                </div>
+                <button id="connect-orcid-btn" class="btn btn-primary">Connect with ORCID</button>
+            </div>
+        </section>
+
+        <!-- Step 3: The Lighthouse -->
+        <section id="lighthouse-screen" class="screen hidden w-full max-w-6xl mx-auto">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Left: Prompts -->
+                <div class="lg:col-span-1 space-y-6">
+                    <h1 class="font-serif text-4xl font-bold text-charcoal-blue">您的灯塔</h1>
+                    <p class="text-charcoal-blue">
+                        这是您个人资料的灵魂。请撰写一篇至少 500 字的文章，分享您思想的源头、研究的热情，或是一次改变您世界观的经历。
+                    </p>
+                    <div class="bg-white/50 p-4 rounded-lg border border-gray-200 space-y-3">
+                        <h3 class="font-serif text-lg font-bold">灵感提示 (Prompts)</h3>
+                        <ul class="list-disc list-inside text-sm space-y-2 text-charcoal-blue/80">
+                            <li>是什么让您在无数个深夜里，依然对您的研究充满热情？</li>
+                            <li>分享一次让您彻底改变看法的“啊哈！”时刻。</li>
+                            <li>如果向一个完全不同领域的人介绍您的工作，您会如何讲述它的“美”？</li>
+                            <li>描述一个启发了您当前思考路径的“失败”经历。</li>
+                        </ul>
+                    </div>
+                     <p class="text-sm text-charcoal-blue/70">
+                        伟大的作品需要时间。您可以随时保存草稿，我们等您。
+                    </p>
+                </div>
+                <!-- Right: Editor -->
+                <div class="lg:col-span-2">
+                    <div class="relative">
+                        <textarea id="lighthouse-editor" placeholder="在此处开始书写您的故事...">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam.
+
+Praesent dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat nisl. Nam surreal. Sed vel lectus. Donec odio tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor id mi. Pellentesque ipsum. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin magna. In hac habitasse platea dictumst.
+
+Morbi ut quam. Fusce ut est. In sit amet turpis. Proin quam. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis enim.
+
+Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.
+
+Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut.</textarea>
+                        <div id="word-count-feedback" class="absolute bottom-4 right-4 text-sm font-semibold p-2 rounded-md transition-all">
+                            <span id="word-count">0</span> / 500 字
+                        </div>
+                    </div>
+                    <div class="mt-6 text-right">
+                        <button id="illuminate-btn" class="btn btn-primary opacity-50 cursor-not-allowed" disabled>Illuminate My Lighthouse</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Screen elements
+            const manifestoScreen = document.getElementById('manifesto-screen');
+            const orcidScreen = document.getElementById('orcid-screen');
+            const lighthouseScreen = document.getElementById('lighthouse-screen');
+
+            // Button elements
+            const beginJourneyBtn = document.getElementById('begin-journey-btn');
+            const connectOrcidBtn = document.getElementById('connect-orcid-btn');
+            const illuminateBtn = document.getElementById('illuminate-btn');
+
+            // Lighthouse editor elements
+            const lighthouseEditor = document.getElementById('lighthouse-editor');
+            const wordCountEl = document.getElementById('word-count');
+            const wordCountFeedback = document.getElementById('word-count-feedback');
+
+            const MIN_WORDS = 500;
+
+            // Function to switch between screens
+            function switchScreen(fromScreen, toScreen) {
+                if (fromScreen) {
+                    fromScreen.classList.add('hidden');
+                }
+                if (toScreen) {
+                    toScreen.classList.remove('hidden'); 
+                    setTimeout(() => {
+                        toScreen.style.opacity = '1';
+                        toScreen.style.transform = 'translateY(0)';
+                    }, 20);
+                }
+            }
+            
+            // Set initial screen state correctly
+            [orcidScreen, lighthouseScreen].forEach(screen => {
+                screen.style.opacity = '0';
+                screen.style.transform = 'translateY(20px)';
+            });
+            manifestoScreen.style.opacity = '1';
+            manifestoScreen.style.transform = 'translateY(0)';
+
+            // Function to update word count and button state
+            function updateWordCount() {
+                const text = lighthouseEditor.value.trim();
+                const words = text.split(/\s+/).filter(word => word.length > 0);
+                const wordCount = words.length;
+
+                wordCountEl.textContent = wordCount;
+
+                if (wordCount >= MIN_WORDS) {
+                    illuminateBtn.disabled = false;
+                    illuminateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    wordCountFeedback.classList.add('bg-green-100', 'text-green-800');
+                    wordCountFeedback.classList.remove('bg-red-100', 'text-red-800');
+                } else {
+                    illuminateBtn.disabled = true;
+                    illuminateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    wordCountFeedback.classList.remove('bg-green-100', 'text-green-800');
+                    if(wordCount > 0){
+                       wordCountFeedback.classList.add('bg-red-100', 'text-red-800');
+                    } else {
+                       wordCountFeedback.classList.remove('bg-red-100', 'text-red-800');
+                    }
+                }
+            }
+
+            // --- Event Listeners ---
+
+            // 1. Begin Journey -> Go to ORCID screen
+            beginJourneyBtn.addEventListener('click', () => {
+                switchScreen(manifestoScreen, orcidScreen);
+            });
+
+            // 2. Connect ORCID -> Go to Lighthouse screen (Simulated)
+            connectOrcidBtn.addEventListener('click', () => {
+                connectOrcidBtn.textContent = '正在验证...';
+                connectOrcidBtn.disabled = true;
+                setTimeout(() => {
+                    switchScreen(orcidScreen, lighthouseScreen);
+                }, 1500);
+            });
+
+            // 3. Lighthouse Editor -> Word Count and Button Activation
+            lighthouseEditor.addEventListener('input', updateWordCount);
+            
+            // 4. Final button click (for demonstration)
+            illuminateBtn.addEventListener('click', () => {
+                if (!illuminateBtn.disabled) {
+                    alert('恭喜您！您的灯塔已被点亮。欢迎来到 Resonance。 (这是一个演示终点)');
+                    window.location.href = 'index.html'; // Redirect back to the main page
+                }
+            });
+
+            // --- Initial State Setup ---
+            // Trigger the word count update on page load for the pre-filled text
+            updateWordCount();
+        });
+    </script>
+</body>
+</html>

@@ -230,7 +230,7 @@
             padding: 80px 0;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         .section:last-of-type {
             border-bottom: none;
         }
@@ -279,7 +279,7 @@
             text-align: left;
             flex-grow: 1;
         }
-        
+
         .icon {
             font-size: 48px;
             margin-bottom: 20px;
@@ -353,7 +353,7 @@
             margin-top: 0;
             font-size: 28px;
         }
-        
+
         .founder-letter .signature {
             font-weight: 700;
             font-family: 'Noto Serif SC', serif;
@@ -371,7 +371,7 @@
             font-size: 20px;
             outline: none;
         }
-        
+
         .faq-container summary:hover {
             color: var(--primary-color);
         }
@@ -405,6 +405,32 @@
             text-decoration: underline;
         }
 
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 13px 33px;
+        }
+
+        .cta-secondary:hover {
+            background-color: rgba(160, 82, 45, 0.05);
+            color: #8B4513;
+            border-color: #8B4513;
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 13px 33px;
+        }
+
+        .cta-secondary:hover {
+            background-color: rgba(160, 82, 45, 0.05);
+            color: #8B4513;
+            border-color: #8B4513;
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .nav-links {
@@ -416,9 +442,9 @@
                 flex-direction: column;
                 width: 100%;
                 text-align: center;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
                 border-bottom: 1px solid var(--border-color);
-                
+
                 /* Animation properties */
                 max-height: 0;
                 opacity: 0;
@@ -436,7 +462,7 @@
                 width: 100%;
                 border-bottom: 1px solid var(--border-color);
             }
-            
+
             .nav-links a:last-child {
                 border-bottom: none;
             }
@@ -448,9 +474,11 @@
             .hamburger.active .line:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
+
             .hamburger.active .line:nth-child(2) {
                 opacity: 0;
             }
+
             .hamburger.active .line:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
@@ -527,7 +555,10 @@
             </div>
 
             <p class="slogan">Find Your Co-Author for Life.</p>
-            <a href="https://tally.so/r/3ER1QL" class="cta-button" style="margin-top: 20px; display: inline-block;" target="_blank">加入等待名单</a>
+            <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank">开启我的灯塔</a>
+                <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank">体验核心流程</a>
+            </div>
         </div>
     </section>
 
@@ -573,25 +604,37 @@
         <div class="container">
             <h2 class="section-title">解决方案：灯塔方法论</h2>
             <p class="section-subtitle">我们不改良旧系统，我们创造新范式。我们坚信：你 <span class="highlight">创造</span> 了什么，远比你 <span class="highlight">声称</span>
-                自己是什么，更有魅力。Resonance将寻找灵魂伴侣的过程，从一场充满焦虑的自我营销，转变为一场充满乐趣的自我实现之旅。</p>
+                自己是什么更有魅力。Resonance将寻找灵魂伴侣的过程，从一场充满焦虑的自我营销，转变为一场独特的<span class="highlight">自我发现之旅</span>。</p>
+
+            <div class="slogan-quote" style="text-align: center; margin: -20px auto 60px auto; max-width: 600px;">
+                <p style="font-family: 'Noto Serif SC', serif; font-size: 24px; font-weight: 700; color: var(--primary-color); margin-bottom: 5px;">
+                    你若发光，自有回响
+                </p>
+                <p style="font-family: 'Lato', sans-serif; font-size: 16px; color: var(--light-text-color); font-style: italic;">
+                    If you shine, resonance shall follow.
+                </p>
+            </div>
+
             <div class="grid">
                 <div class="card">
-                    <h3>第一步：建立你的<span class="highlight">灯塔</span></h3>
-                    <p>通过撰写一篇深刻的“灯塔”长文，完成一次彻底的自我梳理。它将成为你的“灵魂宣言”，吸引那些能读懂你思想的船只，而非被表面光环吸引的过客。</p>
+                    <h3>建立你的<span class="highlight">灯塔</span></h3>
+                    <p>它是一个以<span class="highlight">核心宣言</span>为主体，多个模块共同构成，记录你生长过程的<span class="highlight">灵魂年轮</span>，展示<span
+                            class="highlight">真实自我的引力源</span>，从而吸引那些能读懂你完整内在世界的船只。</p>
                 </div>
                 <div class="card">
-                    <h3>第二步：构建<span class="highlight">灵魂马赛克</span></h3>
-                    <p>通过“行舟”(哲学)、“璞墟”(日常)、“观止”(品味)、“格物”(思想)四个维度，构建一个多维的、展示 <span class="highlight">完整的人</span> 的“个人博物馆”。让别人通过你的思想和创造，来认识你。</p>
+                    <h3>构建<span class="highlight">灵魂马赛克</span></h3>
+                    <p>通过“行舟”(哲学)、“璞墟”(日常)、“观止”(品味)、“格物”(思想)四个维度，构建一个多维展示 <span class="highlight">完整的人</span> 的“个人博物馆”。让别人透过真实表达来认识你。</p>
                 </div>
                 <div class="card">
-                    <h3>第三步：以<span class="highlight">提问</span>开始连接</h3>
-                    <p>我们用一个精心设计的、源于你“灯塔”的深刻问题，来取代无意义的“Hi”。每一次互动，都必须是一次智识的探索，一场灵魂的探戈。</p>
+                    <h3>以<span class="highlight">提问</span>开始连接</h3>
+                    <p>我们认为，理解铠甲与面具包裹下真诚表达的<span class="highlight">内在</span>，才能产生真正的共鸣。一个发自内心的好奇问题，远比无意义的“Hi”更具<span class="highlight">穿透力</span>。
+                    </p>
                 </div>
             </div>
             <p class="section-subtitle" style="margin-top: 60px; text-align: left; max-width: 800px; border-left: 3px solid var(--primary-color); padding-left: 20px; background-color: rgba(0,0,0,0.02); border-radius:
    0 8px 8px 0; padding: 20px;">
                 <strong>为何可行？</strong><br>
-                灯塔方法论的核心，是<span class="highlight">信号的逆转</span>。它将最深刻、最需要时间被理解的“延迟信号”（你的思想、品格、创造力），前置为匹配的<span class="highlight">核心依据</span>
+                灯塔方法论的核心，是<span class="highlight">信号的逆转</span>。它将最深刻、最需要时间被理解的“延迟信号”（你的思考、品格、体验、创造力），前置为匹配的<span class="highlight">核心依据</span>
                 。通过“灯塔”和“马赛克”的自我展示，你不再是被动等待被“刷到”的卡片，而是主动发出独特信号的灯塔。如此，每一次连接都始于深度共鸣，而非肤浅的外部标签匹配。
             </p>
         </div>
@@ -601,21 +644,23 @@
         <div class="container">
             <h2 class="section-title">一个为完整人生设计的<span class="highlight">数字家园</span></h2>
             <p class="section-subtitle">Resonance 不仅仅是一个工具，它是一个由三个独特空间组成的数字家园，旨在服务于思想建筑师在智识生活中的不同需求。</p>
-            
-            <div class="scenario-box" style="margin-bottom: 60px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; border-left: 3px solid var(--primary-color); padding-left: 20px; background-color: rgba(0,0,0,0.02); border-radius: 0 8px 8px 0; padding: 20px;">
+
+            <div class="scenario-box"
+                 style="margin-bottom: 60px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto; border-left: 3px solid var(--primary-color); padding-left: 20px; background-color: rgba(0,0,0,0.02); border-radius: 0 8px 8px 0; padding: 20px;">
                 <p style="margin: 0;">
-                    清晨，你在 <strong>resonance.place</strong> 的私人书房里，为自己而非为流量，写下了一篇酝酿已久的长文。<br>
-                    午后，你在 <strong>resonance.coffee</strong> 读到一篇被精心策展的、关于城市设计的文章，深受启发。<br>
-                    傍晚，你在 <strong>resonance.pub</strong> 找到了一个本地的“城市漫步”小组，决定将线上的思考，延伸到线下的真实探索中。<br>
-                    入夜，你收到一封私密的提问。有人读懂了你的长文，一场真正的对话，即将在你的书房里开启。
+                    在又一个被无效会议填满的工作日结束后，你回到自己的<span class="highlight">数字书房 (resonance.place)</span>，写下了一段关于“如何在喧嚣中守护内心秩序”的思考。<br>
+                    入夜，你收到了一封私密的提问。没有客套，只有一个真诚的问题：<br>
+                    <span style="display: block; margin-top: 10px; font-style: italic;">“……读完你的文章，我深受触动。我同样在为此挣扎。我想问的是，在你感到秩序即将崩塌的那些瞬间，你是如何找回重心的？”</span><br>
+                    故事的下一章，就这样开始了。
                 </p>
             </div>
 
             <div class="grid">
-			    <div class="card">
+                <div class="card">
                     <div class="icon">🏰</div>
                     <h3>resonance.place<br/>你的主权领地</h3>
-                    <p>一个你拥有绝对主权的数字空间。你将在这里建造<span class="highlight">思想灯塔</span>，并策展出一个独一无二的<span class="highlight">个人博物馆</span>作为你的思想名片。当真正的共鸣发生时，你便可以邀请那个灵魂进入<span class="highlight">私人书房</span>，开启一场深刻对话。</p>
+                    <p>一个你拥有绝对主权的数字空间。你将在这里建造<span class="highlight">思想灯塔</span>，并策展出一个独一无二的<span class="highlight">个人博物馆</span>作为你的思想名片。当真正的共鸣发生时，你便可以邀请那个灵魂进入<span
+                            class="highlight">私人书房</span>，开启一场深刻对话。</p>
                 </div>
                 <div class="card">
                     <div class="icon">☕️</div>
@@ -635,7 +680,8 @@
     <section id="principles" class="section">
         <div class="container">
             <h2 class="section-title">我们的承诺：《同频公约》</h2>
-            <p class="section-subtitle">我们不仅是一个产品，更是一场文化运动。我们拥有公开的<span class="highlight">宪法</span>，向世界宣告我们<span class="highlight">使命驱动</span>的本质。以下是其不可动摇的核心原则：</p>
+            <p class="section-subtitle">我们不仅是一个产品，更是一场文化运动。我们拥有公开的<span class="highlight">宪法</span>，向世界宣告我们<span class="highlight">使命驱动</span>的本质。以下是其不可动摇的核心原则：
+            </p>
             <div class="grid">
                 <div class="card">
                     <div class="icon">🚫</div>
@@ -661,24 +707,63 @@
             <div class="founder-letter">
                 <h3>一封来自创始人的信</h3>
                 <p>如果你能找到这里，我想，我们可能拥有相似的灵魂。</p>
-                <p>在过去的很多年里，我一直试图用代码、系统、逻辑与理性，为我混乱的内心世界建造秩序。这是我唯一知道、让自己在这个世界上感到安全的方式。我曾以为，如果将自己的成就、爱好、思考，这些<span class="highlight">参数</span>都精准地展示出来，我就能像解一道数学题一样，找到那个<span class="highlight">最优解</span>。</p>
+                <p>在过去的很多年里，我一直试图用代码、系统、逻辑与理性，为我混乱的内心世界建造秩序。这是我唯一知道、让自己在这个世界上感到安全的方式。我曾以为，如果将自己的成就、爱好、思考，这些<span
+                        class="highlight">参数</span>都精准地展示出来，我就能像解一道数学题一样，找到那个<span class="highlight">最优解</span>。</p>
                 <p>我失败了。</p>
                 <p>在经历了无数次<span class="highlight">协议错误</span>的对话和一场朝圣之旅后，我终于明白了一个残酷的<span class="highlight">真相</span>：</p>
-                <p>深刻的连接，无法被<span class="highlight">计算</span>，只能被<span class="highlight">共鸣</span>。而这需要一个前提：你必须敢于发出自己即便是平淡、奇怪、会被误解，但最真诚的<span class="highlight">声音</span>。</p>
-                <p>Resonance（或者，我更愿意称它为同频），就是在持续十多年的风暴之后，从过于安静的书房里诞生的一个想法。它源于一个自私而脆弱的念头：“如果这个世界上，没有任何一个地方是为我们这种“怪人”设计的，我们能否为自己亲手建造一个？”</p>
+                <p>深刻的连接，无法被<span class="highlight">计算</span>，只能被<span class="highlight">共鸣</span>。而这需要一个前提：你必须敢于发出自己即便是平淡、奇怪、会被误解，但最真诚的<span
+                        class="highlight">声音</span>。</p>
+                <p>
+                    Resonance（或者，我更愿意称它为同频），就是在持续十多年的风暴之后，从过于安静的书房里诞生的一个想法。它源于一个自私而脆弱的念头：“如果这个世界上，没有任何一个地方是为我们这种“怪人”设计的，我们能否为自己亲手建造一个？”</p>
                 <p>一个让我们不必再<span class="highlight">表演</span>自己是谁，而可以通过<span class="highlight">创造</span>什么来表达自己的地方。</p>
                 <p>一个将我们那些不被理解的<span class="highlight">特殊兴趣</span>，视为最高价值的<span class="highlight">吸引力信号</span>的地方。</p>
                 <p>一个让我们在发出自己那微弱的<span class="highlight">空谷足音</span>后，能真的听到一声温暖的<span class="highlight">跫然</span>回应的地方。</p>
                 <p>所以，你眼前看到的这个平台，它的每一行代码，每一个设计，都浸透着我个人的挣扎、失败和最终的期许。</p>
                 <p>那个需要你写500字的<span class="highlight">博物馆介绍</span>，是因为我发现，只有通过写作，我才能真正地认识我自己。</p>
                 <p>那个以<span class="highlight">提问</span>为核心的互动，是因为我渴望的，不是一句简单的“Hi”，而是一场真正的、能点燃我大脑的对话。</p>
-                <p>那个充满了<span class="highlight">无用之用</span>的璞墟展室，是因为我正在努力地学习，如何与自己那<span class="highlight">不完美</span>的、笨拙的部分和解。</p>
-                <p>我无法向你承诺，你一定能在这里，找到那个<span class="highlight">唯一的灵魂伴侣</span>。</p>但我可以向你承诺一件事：</p>
-                <p>在这里，你不需要再伪装。</p>
-                <p>你可以将你所有的深刻、怪异、热情、脆弱，都安全而有尊严地安放在这里。然后，和我，和所有已经在这里的、孤独的同路人们一起，点亮我们自己的光。</p>
-                <p>去等待那束在远方，与我们拥有同样颜色的光。</p>
+                <p>那个充满了<span class="highlight">无用之用</span>的璞墟展室，是因为我相信，一个灵魂的真实质感，同样体现在那些充满烟火气的“体验”之中。</p>
+                <p>我无法向你承诺，你一定能在这里找到那个<span class="highlight">灵魂伴侣</span>。</p>但我可以向你承诺一件事：</p>
+                <p>在这里，你再不需要伪装。</p>
+                <p>你可以将自己所有的深刻、怪异、热情、脆弱，都安全而有尊严地安放在这里。然后，与我和所有已经在这里的同路人们一起，点亮我们自己的光。</p>
+                <p>与你的灵魂颜色相似的人，会朝着灯塔前来。</p>
                 <p>欢迎回家。 :)</p>
                 <p class="signature">—— JarvieK<br>Resonance 0号用户 & 首席建筑师</p>
+                <p style="font-size: 16px; font-weight: normal; margin-top: 15px; line-height: 1.7;">
+                    <a href="https://wiarlawd.me/" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 5px;">→ 项目背后的思考与缘起</a>
+                    <a href="https://www.weibo.com/u/1605149032" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block;">→ 关注我们的旅程点滴</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="co-builder" class="section" style="background-color: var(--card-bg-color);">
+        <div class="container" style="text-align: center;">
+            <h2 class="section-title">故事的下一章</h2>
+            <div class="section-subtitle" style="max-width: 700px; margin: 0 auto 60px auto; font-style: italic; font-family: 'Noto Serif SC', serif; font-size: 20px;">
+                <p style="margin: 0; text-align: center;">「壁の向こうには、海があって。海の向こうには、自由がある。」</p>
+
+                <input type="checkbox" id="quote-toggle" class="slogan-toggle-checkbox">
+                <label for="quote-toggle" class="slogan-toggle-label" style="text-align: right; display: block; margin-top: 10px;">
+                    <span style="font-size: 16px; color: var(--light-text-color); font-style: normal;">...と信じていた私たちは、その続きを書き換えるために。</span>
+                    <span class="toggle-icon" style="font-size: 16px;"></span>
+                </label>
+
+                <div class="slogan-explanation" style="text-align: left; margin-top: 20px; font-style: normal;">
+                    <h4 style="font-family: 'Noto Serif SC', serif; color: var(--primary-color); margin-top: 0; margin-bottom: 10px;">关于这句引言</h4>
+                    <p style="font-size: 16px;">这句引言来自《进击的巨人》，它代表了剧中人对墙外世界最纯粹的、关于“自由”的梦想。</p>
+                    <p style="font-size: 16px;">然而，故事的结局却走向了对这个梦想最残酷的背叛。仅仅推倒物理的“墙”是不够的。如果内心依然被恐惧和仇恨囚禁，墙外的世界，只会是另一座更大的战场。</p>
+                    <p style="font-size: 16px;">Resonance的存在，正是对此的回应：海的另一边不应是敌人，而是无数和我们一样的，孤独的同路人。</p>
+                </div>
+            </div>
+            <div style="max-width: 700px; margin: 0 auto;">
+                <p style="margin: 0 auto 25px auto; font-size: 18px; line-height: 1.8; text-align: left;">
+                    Resonance 是一场由社区共同书写的文化实验。无论你是希望<span class="highlight">关注我们的旅程、提供宝贵的反馈</span>，还是热衷于<span
+                        class="highlight">培育温暖的社群、讲述深刻的故事、或打造优雅的产品</span>，我们都诚挚地邀请你，进入我们的社区频道，成为这个故事中不可或缺的一部分。
+                </p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 25px;">
+                    <a href="https://discord.gg/MRfksFaK" class="cta-button" style="background-color: #3D3B38; color: #fff;" target="_blank">进入Discord社区</a>
+                    <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank">关注微博动态</a>
+                </div>
             </div>
         </div>
     </section>
@@ -687,22 +772,85 @@
         <div class="container">
             <h2 class="section-title">常见问题</h2>
             <div class="faq-container">
+                <h4 style="font-family: 'Noto Serif SC', serif; text-align: center; font-size: 24px; margin-bottom: 30px; font-weight: 700;">给所有好奇的朋友</h4>
                 <details>
-                    <summary>Resonance 如何保证社区质量？</summary>
+                    <summary>Resonance到底是什么？</summary>
                     <div class="faq-answer">
-                        <p>我们采用严格的邀请制和等待名单审核。初期，我们只会邀请那些在思想、创造和品格上与我们价值观高度一致的成员，以奠定社区的文化基石。我们相信，一个高质量的社区，始于高质量的“创世居民”。</p>
+                        <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 10px;">
+                            <li style="margin-bottom: 10px;">如果你想建立亲密关系，这里可以是<span class="highlight">“智性恋”的交友平台</span>。</li>
+                            <li style="margin-bottom: 10px;">如果你想整合自我，这里可以是<span class="highlight">自我探索的<a href="https://zh.wikipedia.org/wiki/%E5%AF%BA%E5%AD%90%E5%B1%8B"
+                                                                                                                             target="_blank" style="color: var(--primary-color);">寺子屋</a></span>。
+                            </li>
+                            <li style="margin-bottom: 10px;">如果你想观察人类，这里可以是有趣人类的<span class="highlight">野生动物园</span>。</li>
+                        </ul>
+                        <p>Resonance想要成为一场回归本真的人文运动；而<span class="highlight">你，拥有定义自己如何理解它的权利</span>。</p>
                     </div>
                 </details>
                 <details>
-                    <summary>这是一个免费服务吗？</summary>
+                    <summary>什么样的“思想建筑师”适合这里？</summary>
                     <div class="faq-answer">
-                        <p>为了维持“永久无广告”的承诺并覆盖运营成本，Resonance 会是一个付费的会员制社区。我们相信，为真正有价值的服务付费，本身就是一种筛选机制，能吸引到更认真、更投入的成员。早期加入的创世成员将享有特殊优惠。</p>
+                        <p>如果你相信内在世界比外在标签更重要，渴望跳过闲聊、直抵灵魂的对话，并感觉自己珍视的<span class="highlight">深度</span>在速配文化中无处安放，那么，这里就是为你建造的。</p>
                     </div>
                 </details>
                 <details>
-                    <summary>我的数据和隐私绝对安全吗？</summary>
+                    <summary>我很认同这个理念，但我没有“拿得出手”的成就，适合这里吗？</summary>
                     <div class="faq-answer">
-                        <p>是的。这在我们的《同频公约》中是不可动摇的原则。你的个人数据和所创造的内容完全属于你自己。我们绝不会将其用于广告或出售给第三方。我们设计的商业模式，与你的隐私保护是完全一致，而非对立的。</p>
+                        <p>这是一个我们深刻理解，也无比重视的问题。<span class="highlight">你非常适合。</span></p>
+                        <p>Resonance的核心不在于“成就展示”，而是<span class="highlight">真诚的自我探索</span>。“灯塔”的价值，不在于它的外表有多么华丽，而是它发出的光是否<span class="highlight">真实</span>。比起过于光滑的完美，我们珍视不完美的真诚表达。
+                        </p>
+                    </div>
+                </details>
+                <details>
+                    <summary>Resonance的商业模式是什么？如何确保你们的利益与用户一致？</summary>
+                    <div class="faq-answer">
+                        <p>这是一个关乎我们存续之本的核心问题。我们的承诺，建立在一条简单而不可动摇的原则之上：<span class="highlight">我们只通过为用户直接创造和提供价值来获得收入。</span></p>
+                        <p style="margin-top: 10px;">这意味着，我们的产品中<span class="highlight">永远不会有广告</span>，我们也<span class="highlight">永远不会出售您的数据</span>。为了将这份承诺制度化，我们选择以<span
+                                class="highlight">公益导向的社会企业 (<a href="https://en.wikipedia.org/wiki/Benefit_corporation" target="_blank"
+                                                                         style="color: var(--primary-color);">B Corp</a>)</span> 模式运营，确保我们的商业决策，永远将用户的利益置于首位。</p>
+                        <p style="margin-top: 10px;">您的会员费，将直接用于社区的建设与维护。您的支持，是在为一种更健康、更尊重人性的互联网理想投票——我们致力于成为一个<a
+                                href="https://prc.beehiiv.com/p/elephantsnotunicorns" target="_blank" style="color: var(--primary-color);">能长久滋养一片森林的<span class="highlight">大象</span>，而非追求快速增长的<span
+                                class="highlight">独角兽</span></a>。</p>
+                    </div>
+                </details>
+
+                <h4 style="font-family: 'Noto Serif SC', serif; text-align: center; font-size: 24px; margin-top: 60px; margin-bottom: 30px; font-weight: 700;">给寻求深度对齐的未来居民</h4>
+                <p style="text-align: center; max-width: 700px; margin: -20px auto 30px auto; font-size: 16px; color: var(--light-text-color);">
+                    <i>一个深刻的项目，需要一次坦诚的对话。以下是我们对自己提出的一些更尖锐的问题。</i></p>
+                <details>
+                    <summary>这是否只是一个包装精美的“精英相亲俱乐部”？</summary>
+                    <div class="faq-answer">
+                        <p>不是。我们正试图从根本上，重新思考“连接”意味着什么。</p>
+                        <p style="margin-top: 10px;">关于<span class="highlight">“相亲”</span>：在<span class="highlight">种子阶段</span>，我们确实不可避免地需要带来优质内容的早期成员加入，来奠定高质量的社区文化。但这并非我们的终点。Resonance的最终愿景，是向所有认同我们“创造者”哲学的人开放。我们唯一的“门槛”是<span
+                                class="highlight">真诚</span>，而非社会标签。</p>
+                        <p style="margin-top: 10px;">关于<span class="highlight">“相亲”</span>：我们致力于解构 <span class="highlight">“朋友区” (Friend Zone)</span> 这个充满焦虑的概念。我们认为，深刻的连接是一个<span class="highlight">动态的光谱</span>，而非“朋友/恋人”的二元开关。它始于陌生，终于知己，而“伴侣”只是这个光谱上一个独特而重要的位置。
+                        </p>
+                        <p style="margin-top: 10px;">Resonance的整个生态，是为了培育诞生于“看见”之后的“吸引”而设计的。我们相信，真正健康长久的人际关系始于理解、尊重与欣赏。在此之后，你们拥有决定将这份“吸引”导向何方的权力。
+                        </p>
+                    </div>
+                </details>
+                <details>
+                    <summary>灵魂伴侣是什么？</summary>
+                    <div class="faq-answer">
+                        <p>在我们有限的经验与观察中，“灵魂伴侣”是一种可以被培养的、深刻的动态伙伴关系。我们相信，一个真正的灵魂伴侣，是那个能让你<span class="highlight">完全安心做自己</span>的人。</p>
+                        <p>这种关系，通常建立在三个核心基础之上：</p>
+                        <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 10px;">
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">相似的“思考形状”</strong>：你们不一定喜欢一样的东西，但你们理解世界的方式是相似的。你们能听懂对方话语背后的逻辑和好奇心，并享受于共同探索一个问题的乐趣。</li>
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">情感上的绝对安全</strong>：在这段关系里，你不需要“扮演”一个更好的自己。你可以展现自己的脆弱、不完美，甚至“怪异”的一面，而不用担心被评判或被误解。</li>
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">共同的人生方向</strong>：你们对“什么是好的生活”这个问题的答案，大方向是一致的。你们都认同并支持彼此去成为那个更想成为的人。</li>
+                        </ul>
+                        <p>“灵魂伴侣”不是那个来“完整”你的人，而是那个在你身边，能让你更有勇气去“完整”自己的人。</p>
+                    </div>
+                </details>
+                <details>
+                    <summary>灵魂伴侣还能是什么？</summary>
+                    <div class="faq-answer">
+                        <p>“灵魂伴侣”的定义不应该是僵化的。除了我们所推崇的“共同成长”模型，我们相信还存在至少三种同样深刻且有价值的理解：</p>
+                        <ul style="padding-left: 20px; margin-top: 10px; margin-bottom: 10px;">
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">“责任的共同体”</strong>：那个能与你共同承担一项神圣责任的“战友”。你们的连接，源于对共同事业（抚育后代、服务社群、完成创造）的忠诚。</li>
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">“宁静的港湾”</strong>：那个能为你提供无条件安宁与舒适的“家”。在经历了外部世界的风暴后，对方是那个能让你彻底放松、获得情感滋养的避风港。</li>
+                            <li style="margin-bottom: 10px;"><strong style="color: var(--primary-color);">“终身的玩伴”</strong>：那个能与你一同以轻松、有趣的方式体验世界的伙伴。你们的关系核心，是共同的好奇心、幽默感和对生活纯粹的享受。</li>
+                        </ul>
+                        <p>我们鼓励你，将“灵魂伴侣”的定义权，牢牢地掌握在自己手中。Resonance是一个帮助你更精准、更真诚地，去找到那个符合<span class="highlight">你自己的定义</span>的同行者的工具。</p>
                     </div>
                 </details>
             </div>
@@ -715,10 +863,19 @@
     <div class="container">
         <h2>准备好，点亮你的灯塔了吗？</h2>
         <p>加入我们，与全球的<span class="highlight">思想建筑师</span>一同，开启一场寻找灵魂同类的创造之旅。</p>
-        <a href="https://tally.so/r/3ER1QL" class="cta-button" style="margin-top: 20px;" target="_blank">加入等待名单</a>
-        <p style="margin-top: 40px;">想了解更多？ <a href="https://lightning-halloumi-d2f.notion.site/Resonance-v1-0-25251a83b259804b85c8daf761a55a91" target="_blank">阅读我们的白皮书</a></p>
-        <p style="font-size: 14px; color: #aaa; margin-top: 20px;">© 2025 Resonance. All Rights Reserved.</p>
-        <p style="font-size: 12px; color: #aaa; margin-top: 10px;">我们使用尊重隐私的 Fathom Analytics 进行网站分析，您的数据永远属于您自己。</p>
+        <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank">开启我的灯塔</a>
+            <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank">体验核心流程</a>
+        </div>
+        <p style="margin-top: 40px;">
+            <a href="https://wiarlawd.me/" target="_blank" style="margin: 0 10px;">博客</a> |
+            <a href="https://www.weibo.com/u/1605149032" target="_blank" style="margin: 0 10px;">微博</a> |
+            <a href="https://discord.gg/MRfksFaK" target="_blank" style="margin: 0 10px;">Discord</a> |
+            <a href="https://lightning-halloumi-d2f.notion.site/Resonance-v1-0-25251a83b259804b85c8daf761a55a91" target="_blank" style="margin: 0 10px;">白皮书</a>
+        </p>
+        <p style="font-size: 14px; color: #aaa; margin-top: 60px;">© 2025 Resonance. All Rights Reserved.</p>
+        <p style="font-size: 12px; color: #aaa; margin-top: 10px;">我们使用尊重隐私的 <a href="https://usefathom.com/" target="_blank" style="color: #aaa;">Fathom Analytics</a> 进行网站分析，您的数据永远属于您自己。
+        </p>
     </div>
 </footer>
 
@@ -751,7 +908,7 @@
             }
         });
     });
-    
+
     // Close mobile menu when a link is clicked
     navA.forEach(link => {
         link.addEventListener('click', () => {
