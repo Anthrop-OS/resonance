@@ -551,7 +551,7 @@
 
             <div class="slogan-container">
                 <input type="checkbox" id="slogan-toggle" class="slogan-toggle-checkbox">
-                <label for="slogan-toggle" class="slogan-toggle-label">
+                <label for="slogan-toggle" class="slogan-toggle-label" onclick="fathom.trackEvent('slogan explanation toggle')">
                     <div class="poem-slogan">
                         <span class="phantom-icon">[?]</span>
                         <div class="poem-lines">
@@ -576,8 +576,8 @@
 
             <p class="slogan">Find Your Co-Author for Life.</p>
             <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-                <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank">开启我的灯塔</a>
-                <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank">体验核心流程</a>
+                <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: hero primary')">开启我的灯塔</a>
+                <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: hero secondary')">体验核心流程</a>
             </div>
         </div>
     </section>
@@ -750,8 +750,8 @@
                 <p>欢迎回家。 :)</p>
                 <p class="signature">—— JarvieK<br>Resonance 0号用户 & 首席建筑师</p>
                 <p style="font-size: 16px; font-weight: normal; margin-top: 15px; line-height: 1.7;">
-                    <a href="https://wiarlawd.me/" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 5px;">→ 项目背后的思考与缘起</a>
-                    <a href="https://www.weibo.com/u/1605149032" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block;">→ 关注我们的旅程点滴</a>
+                    <a href="https://wiarlawd.me/" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 5px;" onclick="fathom.trackEvent('nav click: founder blog')">→ 项目背后的思考与缘起</a>
+                    <a href="https://www.weibo.com/u/1605149032" target="_blank" style="color: var(--primary-color); text-decoration: none; display: block;" onclick="fathom.trackEvent('nav click: founder weibo')">→ 关注我们的旅程点滴</a>
                 </p>
             </div>
         </div>
@@ -764,7 +764,7 @@
                 <p style="margin: 0; text-align: center;">「壁の向こうには、海があって。海の向こうには、自由がある。」</p>
 
                 <input type="checkbox" id="quote-toggle" class="slogan-toggle-checkbox">
-                <label for="quote-toggle" class="slogan-toggle-label" style="text-align: right; display: block; margin-top: 10px;">
+                <label for="quote-toggle" class="slogan-toggle-label" style="text-align: right; display: block; margin-top: 10px;" onclick="fathom.trackEvent('quote explanation toggle')">
                     <span style="font-size: 16px; color: var(--light-text-color); font-style: normal;">...と信じていた私たちは、その続きを書き換えるために。</span>
                     <span class="toggle-icon" style="font-size: 16px;"></span>
                 </label>
@@ -782,8 +782,8 @@
                         class="highlight">培育温暖的社群、讲述深刻的故事、或打造优雅的产品</span>，我们都诚挚地邀请你，进入我们的社区频道，成为这个故事中不可或缺的一部分。
                 </p>
                 <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 25px;">
-                    <a href="https://discord.gg/MRfksFaK" class="cta-button" target="_blank">进入Discord社区</a>
-                    <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank">关注微博动态</a>
+                    <a href="https://discord.gg/MRfksFaK" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: co-builder discord')">进入Discord社区</a>
+                    <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: co-builder weibo')">关注微博动态</a>
                 </div>
             </div>
         </div>
@@ -913,20 +913,35 @@
         <h2>准备好，点亮你的灯塔了吗？</h2>
         <p>加入我们，与全球的<span class="highlight">思想建筑师</span>一同，开启一场寻找灵魂同类的创造之旅。</p>
         <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank">开启我的灯塔</a>
-            <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank">体验核心流程</a>
+            <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: footer primary')">开启我的灯塔</a>
+            <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: footer secondary')">体验核心流程</a>
         </div>
         <p style="margin-top: 40px;">
-            <a href="https://wiarlawd.me/" target="_blank" style="margin: 0 10px;">博客</a> |
-            <a href="https://www.weibo.com/u/1605149032" target="_blank" style="margin: 0 10px;">微博</a> |
-            <a href="https://discord.gg/MRfksFaK" target="_blank" style="margin: 0 10px;">Discord</a> |
-            <a href="https://lightning-halloumi-d2f.notion.site/Resonance-v1-0-25251a83b259804b85c8daf761a55a91" target="_blank" style="margin: 0 10px;">白皮书</a>
+            <a href="https://wiarlawd.me/" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer blog')">博客</a> |
+            <a href="https://www.weibo.com/u/1605149032" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer weibo')">微博</a> |
+            <a href="https://discord.gg/MRfksFaK" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer discord')">Discord</a> |
+            <a href="https://lightning-halloumi-d2f.notion.site/Resonance-v1-0-25251a83b259804b85c8daf761a55a91" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer whitepaper')">白皮书</a>
         </p>
         <p style="font-size: 14px; color: #aaa; margin-top: 60px;">© 2025 Resonance. All Rights Reserved.</p>
         <p style="font-size: 12px; color: #aaa; margin-top: 10px;">我们使用尊重隐私的 <a href="https://usefathom.com/" target="_blank" style="color: #aaa;">Fathom Analytics</a> 进行网站分析，您的数据永远属于您自己。
         </p>
     </div>
 </footer>
+
+<script>
+    // Fathom Event Tracking for FAQ Toggles
+    document.addEventListener('DOMContentLoaded', function () {
+        const faqItems = document.querySelectorAll('.faq-container details');
+        faqItems.forEach(item => {
+            item.addEventListener('toggle', function () {
+                if (this.open) {
+                    const question = this.querySelector('summary').textContent.trim();
+                    fathom.trackEvent('faq open: ' + question);
+                }
+            });
+        });
+    });
+</script>
 
 <script>
     const hamburger = document.querySelector('.hamburger');
