@@ -219,6 +219,7 @@
             font-weight: 700;
             transition: background-color 0.3s, transform 0.2s;
             display: inline-block;
+            margin-top: 10px;
         }
 
         .cta-button:hover {
@@ -418,19 +419,138 @@
             border-color: #8B4513;
         }
 
-        .cta-secondary {
-            background-color: transparent;
+        .timeline-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            left: 100px;
+            top: 15px;
+            bottom: 15px;
+            width: 3px;
+            background-color: var(--primary-color);
+            opacity: 0.15;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-milestone {
+            width: 100px;
+            flex-shrink: 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding-top: 5px;
+        }
+        
+        .timeline-milestone::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 90px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 3px solid var(--primary-color);
+        }
+
+        .timeline-milestone h4 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            margin: 0;
             color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 13px 33px;
+        }
+        
+        .timeline-milestone span {
+            font-size: 14px;
+            color: var(--light-text-color);
         }
 
-        .cta-secondary:hover {
-            background-color: rgba(160, 82, 45, 0.05);
-            color: #8B4513;
-            border-color: #8B4513;
+        .timeline-content {
+            margin-left: 40px;
+            width: 100%;
+        }
+        
+        .timeline-content.card {
+             padding: 25px; /* A bit less padding for timeline */
+        }
+        
+        .timeline-content h3 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+        
+        .timeline-content p {
+            font-size: 15px;
+            margin-bottom: 15px;
+            color: var(--light-text-color);
+        }
+        
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        .timeline-content ul li {
+            margin-bottom: 8px;
         }
 
+        .timeline-legend {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 14px;
+            color: var(--light-text-color);
+        }
+
+        .cta-roadmap {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            text-align: left;
+        }
+
+        .cta-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .cta-step-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-step-content h4 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+        }
+
+        .cta-step-content p {
+            margin: 0 0 15px 0;
+            font-size: 15px;
+            color: var(--light-text-color);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .nav-links {
@@ -450,6 +570,43 @@
                 opacity: 0;
                 overflow: hidden;
                 transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            }
+            
+            .timeline-container {
+                margin: 20px 0;
+            }
+            
+            .timeline-container::after {
+                left: 15px;
+            }
+
+            .timeline-milestone {
+                width: auto;
+                text-align: left;
+                margin-left: 40px;
+                margin-bottom: 15px;
+            }
+            
+            .timeline-milestone::before {
+                left: -25px;
+                top: 5px;
+            }
+            
+            .timeline-milestone h4 {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            
+            .timeline-milestone span {
+                display: inline-block;
+            }
+
+            .timeline-content {
+                margin-left: 40px;
+            }
+
+            .timeline-item {
+                 flex-direction: column;
             }
 
             .nav-links.active {
@@ -537,6 +694,7 @@
                 <a href="#solution">灯塔方法论</a>
                 <a href="#principles">同频公约</a>
                 <a href="#founder">创始人的信</a>
+                <a href="#timeline">发展蓝图</a>
                 <a href="#faq">FAQ</a>
                 <a href="#co-builder">加入我们</a>
             </div>
@@ -575,10 +733,35 @@
             </div>
 
             <p class="slogan">Find Your Co-Author for Life.</p>
-            <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-                <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: hero primary')">开启我的灯塔</a>
-                <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: hero secondary')">体验核心流程</a>
+            
+            <div class="cta-roadmap">
+                <h3 class="section-title" style="font-size: 28px; margin-bottom: 40px;">选择你的同行方式</h3>
+                <div class="cta-step">
+                    <div class="cta-step-number">1.</div>
+                    <div class="cta-step-content">
+                        <h4>申请成为创始成员</h4>
+                        <p>如果你已准备好，并认同我们的理念，我们邀请你提交申请。创始成员将有机会成为第一批点亮灯塔的同行者，并深度参与产品的共建。</p>
+                        <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: hero apply')">申请成为创始成员</a>
+                    </div>
+                </div>
+                <div class="cta-step">
+                    <div class="cta-step-number">2.</div>
+                    <div class="cta-step-content">
+                        <h4>参与社区的早期建设</h4>
+                        <p>我们的 Discord 与微信社群是正在发生的思想碰撞之地。在这里，你可以与我们和最早的同路人直接交流，分享你的洞见，共同塑造 Resonance 的未来。</p>
+                        <a href="https://discord.gg/MRfksFaK" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: hero discord')">进入 Discord 社区</a>
+                    </div>
+                </div>
+                <div class="cta-step">
+                    <div class="cta-step-number">3.</div>
+                    <div class="cta-step-content">
+                        <h4>关注我们的建造日志</h4>
+                        <p>我们的微博是这场建造之旅的公开日志。我们将在这里分享项目的缘起、进展、思考与挑战。适合希望保持关注，但暂时不想深入参与的朋友。</p>
+                        <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: hero weibo')">关注微博动态</a>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -757,10 +940,82 @@
         </div>
     </section>
 
+    <section id="timeline" class="section">
+        <div class="container">
+            <h2 class="section-title">一座灯塔的建造之旅</h2>
+            <p class="section-subtitle">Resonance 是一个需要长期耕耘的项目。我们相信，真正的价值需要时间来孕育。以下是我们为这座家园规划的蓝图与旅程。</p>
+            <div class="timeline-container">
+                <!-- Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-milestone">
+                        <h4>缘起</h4>
+                        <span>- 2025</span>
+                    </div>
+                    <div class="timeline-content card">
+                        <p>在为世界建造一座家园之前，建筑师必须先在自己的灵魂深处画好蓝图。这一阶段，是漫长而必要的哲学求索。我们反复追问<i>“连接的本质是什么？”</i>，探索如何真实而负责任地，照亮那些最深刻的灵魂。这份漫长的思考，是我们对您未来体验的承诺。</p>
+                        <ul>
+                            <li><span class="highlight">[✓]</span> 确立“创造者模型”：确保您的内在深度，而非外在标签，能被世界看见。</li>
+                            <li><span class="highlight">[✓]</span> 奠定“价值驱动”的商业哲学：承诺我们的利益永远与您一致，永不引入广告。</li>
+                            <li><span class="highlight">[✓]</span> 编写《同频公约》：将尊重与安全，以“宪法”的形式，写入社区的DNA。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-milestone">
+                        <h4>奠基</h4>
+                        <span>2025 - 2026</span>
+                    </div>
+                    <div class="timeline-content card">
+                        <p>我们正在一个受保护的“温室”中，种下第一批种子。通过严格的手动邀请，我们确保社区的初始文化土壤纯净而肥沃。我们追求的不是用户数量，而是连接的质量。您的耐心等待，是为了确保当您最终抵达时，这里已是一片值得您扎根的土地。</p>
+                        <ul>
+                            <li><span class="highlight">[●]</span> 点亮灯塔 (2025-08)：我们向世界发出了第一声信号，邀请价值观高度契合的同路人。</li>
+                            <li><span class="highlight">[ ]</span> 邀请创始成员：手动邀请100位“思想建筑师”，共同浇灌社区的文化土壤。</li>
+                            <li><span class="highlight">[ ]</span> 建造私人书房：打磨核心产品 (resonance.place) 体验，确保您的思想能被优雅、安全地安放。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-milestone">
+                        <h4>生长</h4>
+                        <span>2026 - 2027</span>
+                    </div>
+                    <div class="timeline-content card">
+                        <p>当家园的文化内核足够强大，我们将小心翼翼地打开大门。增长将是有机的、缓慢的，如同雨水浸润土地，而非洪水冲刷一切。我们将逐步开放更丰富的公共空间，让您的智识生活，从独立的书房，延伸至温暖的客厅与图书馆。</p>
+                        <ul>
+                            <li><span class="highlight">[ ]</span> 建立可持续的家园：启动会员制，确保社区能独立、长久地为成员服务，而非为投资人。</li>
+                            <li><span class="highlight">[ ]</span> 开放公共图书馆：推出 .coffee 空间，让深刻的内容得以被发现与探讨。</li>
+                            <li><span class="highlight">[ ]</span> 开启社区客厅：建立 .pub 社区，将线上的思想火花，延续为真实的友谊。</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-milestone">
+                        <h4>繁荣</h4>
+                        <span>2027+</span>
+                    </div>
+                    <div class="timeline-content card">
+                        <p>一片健康的森林，最终会拥有自己的生命。在这个阶段，我们将一部分治理权交还给社区，并探索如何将 Resonance 所沉淀的价值，回馈给更广阔的世界，实现我们“培育一片森林”的最终愿愿景。</p>
+                        <ul>
+                            <li><span class="highlight">[ ]</span> 实现社区自治：将一部分治理权交还给成员选举的委员会，实现“共同体”的理想。</li>
+                            <li><span class="highlight">[ ]</span> 让价值外溢：设立非营利基金会，将社区的智识与财务资源，回馈给青年学者与创造者。</li>
+                            <li><span class="highlight">[ ]</span> 重塑连接：探索将 Resonance 的核心原则“协议化”，为构建一个更健康的互联网贡献力量。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-legend">
+                <p>图例: [✓] 已完成 &nbsp;&nbsp; [●] 进行中 &nbsp;&nbsp; [ ] 计划中</p>
+            </div>
+        </div>
+    </section>
+
     <section id="co-builder" class="section" style="background-color: var(--card-bg-color);">
         <div class="container" style="text-align: center;">
             <h2 class="section-title">故事的下一章</h2>
-            <div class="section-subtitle" style="max-width: 700px; margin: 0 auto 60px auto; font-style: italic; font-family: 'Noto Serif SC', serif; font-size: 20px;">
+                        <div class="section-subtitle" style="max-width: 700px; margin: 0 auto 60px auto; font-style: italic; font-family: 'Noto Serif SC', serif; font-size: 20px;">
                 <p style="margin: 0; text-align: center;">「壁の向こうには、海があって。海の向こうには、自由がある。」</p>
 
                 <input type="checkbox" id="quote-toggle" class="slogan-toggle-checkbox">
@@ -771,24 +1026,41 @@
 
                 <div class="slogan-explanation" style="text-align: left; margin-top: 20px; font-style: normal;">
                     <h4 style="font-family: 'Noto Serif SC', serif; color: var(--primary-color); margin-top: 0; margin-bottom: 10px;">关于这句引言</h4>
-                    <p style="font-size: 16px;">这句引言来自《进击的巨人》，它代表了剧中人对墙外世界最纯粹的、关于“自由”的梦想。</p>
+                    <p style="font-size: 16px;">“海的那边是敌人”这句引言来自《进击的巨人》，它代表了剧中人对墙外世界最纯粹的、关于“自由”的梦想。</p>
                     <p style="font-size: 16px;">然而，故事的结局却走向了对这个梦想最残酷的背叛。仅仅推倒物理的“墙”是不够的。如果内心依然被恐惧和仇恨囚禁，墙外的世界，只会是另一座更大的战场。</p>
                     <p style="font-size: 16px;">Resonance的存在，正是对此的回应：海的另一边不应是敌人，而是无数和我们一样的，孤独的同路人。</p>
                 </div>
             </div>
-            <div style="max-width: 700px; margin: 0 auto;">
-                <p style="margin: 0 auto 25px auto; font-size: 18px; line-height: 1.8; text-align: left;">
-                    Resonance 是一场由社区共同书写的文化实验。无论你是希望<span class="highlight">关注我们的旅程、提供宝贵的反馈</span>，还是热衷于<span
-                        class="highlight">培育温暖的社群、讲述深刻的故事、或打造优雅的产品</span>，我们都诚挚地邀请你，进入我们的社区频道，成为这个故事中不可或缺的一部分。
-                </p>
-                <div style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 25px;">
-                    <a href="https://discord.gg/MRfksFaK" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: co-builder discord')">进入Discord社区</a>
-                    <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: co-builder weibo')">关注微博动态</a>
+            <p style="max-width: 700px; margin: 0 auto 40px auto; font-size: 18px; line-height: 1.8; text-align: left;">Resonance 是一场由社区共同书写的文化实验。无论你是希望<span class="highlight">关注我们的旅程、提供宝贵的反馈</span>，还是热衷于<span class="highlight">培育温暖的社群、讲述深刻的故事、或打造优雅的产品</span>，我们都诚挚地邀请你，成为这个故事中不可或缺的一部分。</p>
+            
+            <div class="cta-roadmap">
+                <h3 class="section-title" style="font-size: 28px; margin-bottom: 40px;">选择你的同行方式</h3>
+                <div class="cta-step">
+                    <div class="cta-step-number">1.</div>
+                    <div class="cta-step-content">
+                        <h4>报名成为创始成员</h4>
+                        <p>如果你已准备好，并认同我们的理念，欢迎填表报名。创始成员将有机会成为第一批点亮灯塔的同行者，并深度参与产品的共建。</p>
+                        <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: co-builder apply')">申请成为创始成员</a>
+                    </div>
                 </div>
-                <div style="margin-top: 40px; text-align: center;">
-                    <h4 style="font-family: 'Noto Serif SC', serif; font-size: 20px; margin-bottom: 15px; font-weight: 700;">加入微信社群</h4>
-                    <img src="https://iili.io/KJ6yMvf.md.png" alt="Resonance 微信社群二维码" style="width: 200px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
-                    <p style="font-size: 14px; color: var(--light-text-color); margin-top: 10px;">（微信扫码，添加时请备注“同频”）</p>
+                <div class="cta-step">
+                    <div class="cta-step-number">2.</div>
+                    <div class="cta-step-content">
+                        <h4>参与社区的早期建设</h4>
+                        <p>我们的 Discord 与微信社群是正在发生的思想碰撞之地。在这里，你可以与我们和最早的同路人直接交流，分享你的洞见，共同塑造 Resonance 的未来。</p>
+                        <a href="https://discord.gg/MRfksFaK" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: co-builder discord')">进入 Discord 社区</a>
+                        <div style="margin-top: 40px; text-align: left;">
+                            <img src="https://iili.io/KJ6yMvf.md.png" alt="Resonance 微信社群二维码" style="width: 200px; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                        </div>
+                    </div>
+                </div>
+                <div class="cta-step">
+                    <div class="cta-step-number">3.</div>
+                    <div class="cta-step-content">
+                        <h4>关注项目进度</h4>
+                        <p>我们将在这里分享项目的幕后日志，以及0号用户在路上的思考与生活点滴。适合希望保持关注，但暂时不想深入参与的朋友。</p>
+                        <a href="https://www.weibo.com/u/1605149032" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: co-builder weibo')">关注微博动态</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -916,13 +1188,26 @@
 
 <footer>
     <div class="container">
-        <h2>准备好，点亮你的灯塔了吗？</h2>
-        <p>加入我们，与全球的<span class="highlight">思想建筑师</span>一同，开启一场寻找灵魂同类的创造之旅。</p>
-        <div class="cta-container" style="margin-top: 30px; display: flex; justify-content: center; align-items: center; gap: 20px; flex-wrap: wrap;">
-            <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: footer primary')">开启我的灯塔</a>
-            <a href="resonance-demo.html" class="cta-button cta-secondary" target="_blank" onclick="fathom.trackEvent('cta click: footer secondary')">体验核心流程</a>
+        <h2 id="footer-cta-title">选择你的同行方式</h2>
+        <div class="cta-roadmap" style="max-width: 800px; margin: 40px auto; text-align: left; color: var(--bg-color);">
+             <div class="cta-step">
+                <div class="cta-step-number" style="color: var(--bg-color);">1.</div>
+                <div class="cta-step-content">
+                    <h4 style="color: var(--bg-color);">申请成为创始成员</h4>
+                    <p style="color: var(--bg-color);">如果你已准备好，并认同我们的理念，我们邀请你提交申请。创始成员将有机会成为第一批点亮灯塔的同行者，并深度参与产品的共建。</p>
+                    <a href="https://tally.so/r/3ER1QL" class="cta-button" target="_blank" onclick="fathom.trackEvent('cta click: footer apply')">申请成为创始成员</a>
+                </div>
+            </div>
+            <div class="cta-step">
+                <div class="cta-step-number" style="color: var(--bg-color);">2.</div>
+                <div class="cta-step-content">
+                    <h4 style="color: var(--bg-color);">参与社区的早期建设</h4>
+                    <p style="color: var(--bg-color);">我们的 Discord 与微信社群是正在发生的思想碰撞之地。在这里，你可以与我们和最早的同路人直接交流，分享你的洞见，共同塑造 Resonance 的未来。</p>
+                    <a href="https://discord.gg/MRfksFaK" class="cta-button cta-secondary" style="color: var(--bg-color); border-color: var(--bg-color);" target="_blank" onclick="fathom.trackEvent('cta click: footer discord')">进入 Discord 社区</a>
+                </div>
+            </div>
         </div>
-        <p style="margin-top: 40px;">
+        <p style="margin-top: 60px;">
             <a href="https://wiarlawd.me/" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer blog')">博客</a> |
             <a href="https://www.weibo.com/u/1605149032" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer weibo')">微博</a> |
             <a href="https://discord.gg/MRfksFaK" target="_blank" style="margin: 0 10px;" onclick="fathom.trackEvent('nav click: footer discord')">Discord</a> |
